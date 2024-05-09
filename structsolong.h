@@ -11,6 +11,18 @@ typedef struct s_matrix
     int     maxY;
     char    **map;
     int     c;
+    t_items p;
+    t_items e;
+    t_items f;
+    t_items n;
 } t_matrix;
+
+typedef struct  s_items
+{
+    void    *img;
+    char    nitems;
+    int     xmap;
+    int     ymap;
+} t_items;
 
 #endif

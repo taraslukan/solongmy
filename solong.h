@@ -6,6 +6,7 @@
 #include <fcntl.h>
 #include "ft_libft/libft.h"
 #include "structsolong.h"
+#include "liberror.h"
 
 char    *strfromfile(int fd);
 int		checkroad(t_matrix *checkmap);
