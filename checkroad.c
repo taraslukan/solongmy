@@ -6,7 +6,7 @@
 /*   By: lukan <lukan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 17:55:15 by lukan             #+#    #+#             */
-/*   Updated: 2024/05/08 17:14:31 by lukan            ###   ########.fr       */
+/*   Updated: 2024/05/09 12:57:36 by lukan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,16 +31,11 @@ static void	fld_fll_after(t_matrix *mappa, char **dublemap, int y, int x)
 
 static char	**flood_fill(t_matrix	*smap, char	**dublemap)
 {
-	int	x;
-	int	y;
-	
-	y = smap->p.ymap;
-	x = smap->p.xmap;
-	fld_fll_after(smap, dublemap,x ,y);
+	fld_fll_after(smap, dublemap,smap->p.ymap ,smap->p.xmap);
 	return(dublemap);
 }
 
-static int getConclusions(char **dublemap)
+static int forfinish(char **dublemap)
 {
    int y;
    int x;
@@ -84,11 +79,11 @@ int	checkroad(t_matrix *checkmap)
 	dublemap = clonemap(checkmap);
 	positionsave(checkmap,0);
 	flood_fill(checkmap, dublemap);
-	if(getConclusions(dublemap))
+	if(forfinish(dublemap))
    {
-      close_matrix(dublemap);
+      del_clone(dublemap);
       return(1);
    }
-   close_matrix(dublemap);
+   del_clone(dublemap);
    return(0);
 }

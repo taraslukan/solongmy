@@ -18,7 +18,7 @@ int	error(int error)
 	return (0);
 }
 
-int	close_matrix(char **matrix)
+int	del_clone(char **matrix)
 {
 	int	y;
 

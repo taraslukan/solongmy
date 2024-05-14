@@ -6,7 +6,7 @@
 /*   By: lukan <lukan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 17:55:31 by lukan             #+#    #+#             */
-/*   Updated: 2024/05/02 18:28:15 by lukan            ###   ########.fr       */
+/*   Updated: 2024/05/09 13:01:33 by lukan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ int	main(int argc,char **argv)
 	 	return (0);
 	first.map = ft_split(str, '\n');
 	free(str);
-	if (checkmap(&first, argv[1]) == 1)
-		printf("la mappa funge");
+	if (checkmap(&first, argv[1]) == 0)
+		del_clone(first.map);
 	else
-		printf("la mappa non funge");
+		exewindow();
 	return (0);
 }

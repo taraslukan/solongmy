@@ -6,7 +6,6 @@
 
 typedef struct s_matrix
 {
-   // t_map   map;
     int     maxX;
     int     maxY;
     char    **map;
@@ -15,7 +14,26 @@ typedef struct s_matrix
     t_items e;
     t_items f;
     t_items n;
+    t_wmlx  mlx;
 } t_matrix;
+
+typedef struct s_img
+{
+	void	*wall;
+	void	*flor;
+	void	*coin;
+	void	*exit;
+	void	*nemico;
+	void	*player;
+	int 	width;
+	int		height;
+} t_img;
+
+typedef struct s_wmlx
+{
+    void    *wind;
+    void    *mlx;
+} t_wmlx;
 
 typedef struct  s_items
 {
