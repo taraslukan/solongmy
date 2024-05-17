@@ -3,30 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   exewindow.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lukan <lukan@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tlukan <tlukan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 17:55:15 by lukan             #+#    #+#             */
-/*   Updated: 2024/05/13 14:46:12 by lukan            ###   ########.fr       */
+/*   Updated: 2024/05/17 15:20:03 by tlukan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "solong.h"
 
-static void	imag_stamp(t_matrix *map , int y, int x)
+void	imag_stamp(t_matrix *map , int y, int x)
 {
-	if (map->matrix[y][x] == '1')
+	if (map->map[y][x] == '1')
 		mlx_put_image_to_window(map->mlx.mlx, map->mlx.wind,
 		 map->img.wall, x * 100 , y * 100);
-	else if (map->matrix[y][x] == 'C')
+	else if (map->map[y][x] == 'C')
 		mlx_put_image_to_window(map->mlx.mlx, map->mlx.wind,
 		 map->img.coin, x * 100 , y * 100);
-	else if (map->matrix[y][x] == 'E')
+	else if (map->map[y][x] == 'E')
 		mlx_put_image_to_window(map->mlx.mlx, map->mlx.wind,
 		 map->img.exit, x * 100, y * 100 );
-	else if (map->matrix[y][x] == 'P')
+	else if (map->map[y][x] == 'P')
 		mlx_put_image_to_window(map->mlx.mlx, map->mlx.wind,
 		 map->img.player, x * 100, y * 100 );
-	else if (map->matrix[y][x] == 'A')
+	else if (map->map[y][x] == 'N')
 		mlx_put_image_to_window(map->mlx.mlx, map->mlx.wind,
 		 map->img.nemico, x * 100, y * 100 );
 	else
@@ -52,17 +52,19 @@ void set_image(t_matrix	*map)
 
 void creatmap(t_matrix *map)
 {
-	mlx_clear_window(map->mlx.mlx, map->mlx.wind);
 	int		y;
 	int		x;
 
 	y = 0;
 	x = 0;
-	while (y < map->maxY)
+	printf("bauubabbbb\n");
+	//mlx_clear_window(map->mlx.mlx, map->mlx.wind);
+	while (y < map->maxy)
 	{ 
-		while (x < map->maxX)
+		printf("diocane%s\n",map->map[y]);
+		while (x < map->maxx)
 		{
-			imag_stamp(map, y, x);
+			//imag_stamp(map, y, x);
 			x++;
 		}
 		y++;
@@ -73,13 +75,13 @@ void creatmap(t_matrix *map)
 int k_hook(int k, t_matrix *map)
 {
 	if (k == KEY_ARROW_RIGHT || k == KEY_D)
-		move_right(map);
+		m_right(map);
     else if (k == KEY_ARROW_LEFT || k == KEY_A)
-		move_left(map);
+		m_left(map);
     else if (k == KEY_ARROW_UP || k == KEY_W)
-		move_up(map);
+		m_up(map);
     else if (k == KEY_ARROW_DOWN || k == KEY_S)
-		move_down(map);
+		m_down(map);
 	else if (k == KEY_ESC)
 		window_escape(map);
     return (0);
@@ -90,8 +92,8 @@ void	exewindow(t_matrix *map)
 	int	x;
 	int	y;
 	
-	x = map->maxX;
-	y = map->maxY;
+	x = map->maxx;
+	y = map->maxy;
 	map->mlx.wind = NULL;
 	map->mlx.mlx = NULL;
 	map->mlx.mlx = mlx_init();
@@ -100,8 +102,9 @@ void	exewindow(t_matrix *map)
 	map->img.width = 100;
 	set_image(map);
 	creatmap(map);
-	mlx_key_hook(map->mlx.wind, k_hook, map);
-	mlx_hook(map->mlx.wind, 17, 0, window_escape, map);
-	mlx_loop_hook(map->mlx.mlx, randomeMoveInit, map);
+	printf("ciaoooooo\n");
+	//mlx_key_hook(map->mlx.wind, k_hook, map);
+	//mlx_hook(map->mlx.wind, 17, 0, window_escape, map);
+	//mlx_loop_hook(map->mlx.mlx, randmv, map);
 	mlx_loop(map->mlx.mlx);
-}
+} 

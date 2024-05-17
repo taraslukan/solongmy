@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   checkmap.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lukan <lukan@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tlukan <tlukan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 16:53:41 by lukan             #+#    #+#             */
-/*   Updated: 2024/05/03 15:38:33 by lukan            ###   ########.fr       */
+/*   Updated: 2024/05/17 14:59:46 by tlukan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "solong.h"
 
 
-static int	checkBer(char *location)
+static int	checkber(char *location)
 {
 	size_t	len;
 	
@@ -31,10 +31,10 @@ static int	rect(t_matrix *checkmap)
 	int y;
 	
 	y = 0;
-	checkmap->maxX =(int) ft_strlen(checkmap->map[0]);
+	checkmap->maxx =(int) ft_strlen(checkmap->map[0]);
 	while (checkmap->map[y])
 	{
-		if(checkmap->maxX == (int) ft_strlen(checkmap->map[y]))
+		if(checkmap->maxx == (int) ft_strlen(checkmap->map[y]))
 			y++;
 		else
 			return (0);
@@ -54,20 +54,18 @@ static int	controlwall(t_matrix *checkmap)
 	y = 0;
 	while(checkmap->map[y])
 	{
-		if((checkmap->map[y][0] == '1')
-			&& (checkmap->map[y][checkmap->maxX] == '1'))
-			y++;
-		else
+		if(!(checkmap->map[y][0] == '1')
+			&& (checkmap->map[y][checkmap->maxx] == '1'))
 			return (0);
+		y++;
 	}	
-	checkmap->maxY = y;
+	checkmap->maxy = y;
 	while(checkmap->map[0][x])
 	{
-		if ((checkmap->map[0][x] == '1') 
-			&& (checkmap->map[checkmap->maxY][x] == '1'))
-			x++;
-		else
+		if (!(checkmap->map[0][x] == '1') 
+			&& (checkmap->map[checkmap->maxy - 1][x] == '1'))
 			return (0);
+		x++;
 	}
 	return (1);
 }
@@ -79,11 +77,13 @@ static int controlitems(t_matrix *checkmap)
 	int	p;
 	int	e;
 
-	y = 0;
-	while(checkmap->map[y])
+	y = -1;
+	p = 0;
+	e = 0;	
+	while(checkmap->map[++y])
 	{
-		x = 0;
-		while (checkmap->map[y][x])
+		x = -1;
+		while (checkmap->map[y][++x])
 		{
 			if(checkmap->map[y][x] == 'P')
 				p++;
@@ -91,9 +91,7 @@ static int controlitems(t_matrix *checkmap)
 				e++;
 			if(checkmap->map[y][x] == 'C')
 				checkmap->c++;
-			x++;
 		}
-		y++;
 	}
 	if((p == 1) && (e == 1) && (checkmap->c >= 1))
 		return (1);
@@ -103,10 +101,13 @@ static int controlitems(t_matrix *checkmap)
 
 int	checkmap(t_matrix *checkm, char *location)
 {	
-	
-	if (checkBer(location) && rect(checkm) && controlwall(checkm) 
+	//printf("%i , %i , %i , %i , %i \n",checkber(location), rect(checkm), controlwall(checkm), controlitems(checkm), checkroad(checkm));
+	if (checkber(location) && rect(checkm) && controlwall(checkm) 
 		&& controlitems(checkm) && checkroad(checkm))
+		
 			return (1);
 		else 	
+	{
 			return (0);
+	}
 }

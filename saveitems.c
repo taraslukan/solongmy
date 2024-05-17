@@ -22,16 +22,16 @@ static void	save_position_struct(t_matrix	*mappa, int y, int x, char type)
    }
 }
 
-void savePosition(t_matrix *mappa)
+void saveposition(t_matrix *mappa)
 {
    int y;
    int x;
 
    y = 0;
-   while (y < mappa->maxY )
+   while (y < mappa->maxy )
 	{
 		x = 0;
-		while (x < mappa->maxX )
+		while (x < mappa->maxx )
 		{
 			if (mappa->map[y][x] == 'P')
             save_position_struct(mappa, y, x,'P');

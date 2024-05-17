@@ -4,18 +4,14 @@
 #define NUM_COLLECTABLE 5
 #define MAX_XPM 5
 
-typedef struct s_matrix
+typedef struct  s_items
 {
-    int     maxX;
-    int     maxY;
-    char    **map;
-    int     c;
-    t_items p;
-    t_items e;
-    t_items f;
-    t_items n;
-    t_wmlx  mlx;
-} t_matrix;
+	void    *img;
+	char    nitems;
+	int     xmap;
+	int     ymap;
+} t_items;
+
 
 typedef struct s_img
 {
@@ -31,16 +27,23 @@ typedef struct s_img
 
 typedef struct s_wmlx
 {
-    void    *wind;
-    void    *mlx;
+	void    *wind;
+	void    *mlx;
 } t_wmlx;
 
-typedef struct  s_items
+typedef struct s_matrix
 {
-    void    *img;
-    char    nitems;
-    int     xmap;
-    int     ymap;
-} t_items;
+	int     maxx;
+	int     maxy;
+	char    **map;
+	int     c;
+	t_items	p;
+	t_items e;
+	t_items f;
+	t_items	n;
+	t_wmlx  mlx;
+	t_img   img;
+} t_matrix;
+
 
 #endif

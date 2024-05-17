@@ -3,6 +3,8 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
+#include "mlxlin/mlx.h"
 #include <fcntl.h>
 #include "ft_libft/libft.h"
 #include "structsolong.h"
@@ -19,12 +21,29 @@
 #define KEY_S 115
 
 #define KEY_ESC 65307
-
-
-
-
-char    *strfromfile(int fd);
+void	random3(t_matrix *map);
+void    n_move_right(t_matrix *map, int playery,int playerx);
+void    n_move_up(t_matrix *map, int playery,int playerx);;
+void    n_move_down(t_matrix *map, int playery,int playerx);
+void    n_move_left(t_matrix *map, int playery,int playerx);
+void    nunmericordo(t_matrix *map, int enemyx, int enemyy);
+char	*strfromfile(int fd);
 int		checkroad(t_matrix *checkmap);
 int		checkmap(t_matrix *checkm, char *location);
+void	saveposition(t_matrix *mappa);
+int		del_clone(char **matrix);
+void	set_image(t_matrix *map);
+void	creatmap(t_matrix *map);
+int		k_hook(int k, t_matrix *map);
+void	exewindow(t_matrix *map);
+int		window_escape(t_matrix *map);
+void	m_down(t_matrix *map);
+void	m_up(t_matrix *map);
+void	m_left(t_matrix *map);
+void	m_right(t_matrix *map);
+void	m_down(t_matrix *map);
+int		move_random(t_matrix *map, int numero, int enemyx, int enemyy);
+int		error(int error);
+int		randmv(t_matrix *map);
 
 #endif

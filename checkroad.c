@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checkroad.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lukan <lukan@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tlukan <tlukan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 17:55:15 by lukan             #+#    #+#             */
-/*   Updated: 2024/05/09 12:57:36 by lukan            ###   ########.fr       */
+/*   Updated: 2024/05/17 14:35:14 by tlukan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,21 @@
 static void	fld_fll_after(t_matrix *mappa, char **dublemap, int y, int x)
 {
 	if(dublemap[y][x] == '0' || dublemap[y][x] == 'C' 
-	|| dublemap[y][x] == 'E' || dublemap[y][x] == 'P')
+	|| dublemap[y][x] == 'E' || dublemap[y][x] == 'P'
+	|| dublemap[y][x] == 'N')
    {
-		dublemap[y][x] = '3';
+		dublemap[y][x] = '1';
 		if (y > 0 && dublemap[y - 1][x] != '1')
 		fld_fll_after(mappa, dublemap, y - 1, x);
 		if (x > 0 && dublemap[y][x - 1] != '1')
 		fld_fll_after(mappa, dublemap, y, x - 1);
-		if (y + 1 <mappa->maxY && dublemap[y + 1][x] != '1')
+		if (y + 1 <mappa->maxy && dublemap[y + 1][x] != '1')
 		fld_fll_after(mappa, dublemap, y + 1, x);
-		if (x + 1 <mappa->maxX && dublemap[y][x + 1] != '1')
+		if (x + 1 <mappa->maxx && dublemap[y][x + 1] != '1')
 		fld_fll_after(mappa, dublemap, y, x + 1);
    }
 }
+
 
 static char	**flood_fill(t_matrix	*smap, char	**dublemap)
 {
@@ -62,8 +64,8 @@ static char	**clonemap(t_matrix *smap )
 	int		i;
 	
 	i = 0;
-	cloned = ft_calloc(sizeof(char**),smap->maxY + 1);
-	while (i < smap->maxY)
+	cloned = ft_calloc(sizeof(char**),smap->maxy + 1);
+	while (i < smap->maxy)
 	{
 		cloned[i] = ft_strdup(smap->map[i]);
 		i++;
@@ -77,7 +79,7 @@ int	checkroad(t_matrix *checkmap)
 	char	**dublemap;
 	
 	dublemap = clonemap(checkmap);
-	positionsave(checkmap,0);
+	saveposition(checkmap);
 	flood_fill(checkmap, dublemap);
 	if(forfinish(dublemap))
    {

@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   strfromfile.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tlukan <tlukan@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/14 16:33:45 by tlukan            #+#    #+#             */
+/*   Updated: 2024/05/15 16:14:27 by tlukan           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "solong.h"
 
-char    *strfromfile(int fd)
+char	*strfromfile(int fd)
 {
 	ssize_t	countread;
-	char    *buffer[10];
+	char    buffer[10];
 	char	*ret;
 	char	*totfree;
 
