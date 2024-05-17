@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exewindow.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tlukan <tlukan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lukan <lukan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 17:55:15 by lukan             #+#    #+#             */
-/*   Updated: 2024/05/17 15:20:03 by tlukan           ###   ########.fr       */
+/*   Updated: 2024/05/17 17:27:12 by lukan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,17 +37,17 @@ void	imag_stamp(t_matrix *map , int y, int x)
 void set_image(t_matrix	*map)
 {    
     map->img.wall = mlx_xpm_file_to_image(map->mlx.mlx,
-	 "img/WALL_1.xpm", &(map->img.width), &(map->img.height));
+	 "xpm/wall.xpm", &(map->img.width), &(map->img.height));
     map->img.flor = mlx_xpm_file_to_image(map->mlx.mlx,
-	 "img/new/pavimento(sci-fi).xpm", &(map->img.width), &(map->img.height));
+	 "xpm/path(sci-fi).xpm", &(map->img.width), &(map->img.height));
     map->img.coin = mlx_xpm_file_to_image(map->mlx.mlx,
-	 "img/coin.xpm", &(map->img.width), &(map->img.height));
+	 "xpm/poke1.xpm", &(map->img.width), &(map->img.height));
     map->img.exit = mlx_xpm_file_to_image(map->mlx.mlx,
-	 "img/OPENTRS.xpm", &(map->img.width), &(map->img.height));
+	 "xpm/E.xpm", &(map->img.width), &(map->img.height));
 	map->img.player = mlx_xpm_file_to_image(map->mlx.mlx,
-	 "img/pirat.xpm", &(map->img.width), &(map->img.height));
+	 "xpm/plyr.xpm", &(map->img.width), &(map->img.height));
 	map->img.nemico = mlx_xpm_file_to_image(map->mlx.mlx,
-	 "img/new/nemico.xpm", &(map->img.width), &(map->img.height));
+	 "xpm/enemy.xpm", &(map->img.width), &(map->img.height));
 }
 
 void creatmap(t_matrix *map)
@@ -58,13 +58,13 @@ void creatmap(t_matrix *map)
 	y = 0;
 	x = 0;
 	printf("bauubabbbb\n");
-	//mlx_clear_window(map->mlx.mlx, map->mlx.wind);
+	mlx_clear_window(map->mlx.mlx, map->mlx.wind);
 	while (y < map->maxy)
 	{ 
 		printf("diocane%s\n",map->map[y]);
 		while (x < map->maxx)
 		{
-			//imag_stamp(map, y, x);
+			imag_stamp(map, y, x);
 			x++;
 		}
 		y++;
@@ -103,8 +103,8 @@ void	exewindow(t_matrix *map)
 	set_image(map);
 	creatmap(map);
 	printf("ciaoooooo\n");
-	//mlx_key_hook(map->mlx.wind, k_hook, map);
-	//mlx_hook(map->mlx.wind, 17, 0, window_escape, map);
-	//mlx_loop_hook(map->mlx.mlx, randmv, map);
+	mlx_key_hook(map->mlx.wind, k_hook, map);
+	mlx_hook(map->mlx.wind, 17, 0, window_escape, map);
+	mlx_loop_hook(map->mlx.mlx, randmv, map);
 	mlx_loop(map->mlx.mlx);
 } 
