@@ -6,7 +6,7 @@
 /*   By: tlukan <tlukan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 16:53:41 by lukan             #+#    #+#             */
-/*   Updated: 2024/05/17 14:59:46 by tlukan           ###   ########.fr       */
+/*   Updated: 2024/05/20 15:06:44 by tlukan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,6 @@ static int controlitems(t_matrix *checkmap)
 
 int	checkmap(t_matrix *checkm, char *location)
 {	
-	//printf("%i , %i , %i , %i , %i \n",checkber(location), rect(checkm), controlwall(checkm), controlitems(checkm), checkroad(checkm));
 	if (checkber(location) && rect(checkm) && controlwall(checkm) 
 		&& controlitems(checkm) && checkroad(checkm))
 		

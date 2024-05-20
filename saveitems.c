@@ -10,15 +10,15 @@ static void	save_position_struct(t_matrix	*mappa, int y, int x, char type)
    }
    else if (type == 'E')
    {
-		mappa->p.nitems = 'E';
-    	mappa->p.xmap = x;
-    	mappa->p.ymap = y;
+		mappa->e.nitems = 'E';
+    	mappa->e.xmap = x;
+    	mappa->e.ymap = y;
    }
    else if (type == 'N')
    {
-		mappa->p.nitems = 'N';
-    	mappa->p.xmap = x;
-    	mappa->p.ymap = y;
+		mappa->n.nitems = 'N';
+    	mappa->n.xmap = x;
+    	mappa->n.ymap = y;
    }
 }
 

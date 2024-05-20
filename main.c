@@ -6,30 +6,22 @@
 /*   By: tlukan <tlukan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 17:55:31 by lukan             #+#    #+#             */
-/*   Updated: 2024/05/17 15:14:26 by tlukan           ###   ########.fr       */
+/*   Updated: 2024/05/20 18:37:29 by tlukan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "solong.h"
-
-void map(t_matrix *map)
+void	digitnm(t_matrix *map, char a)
 {
-	int		y;
-	int		x;
-
-	y = 0;
-	printf(" map->maxy%d\n", map->maxx);
-
-	while (y < map->maxy)
-	{ 
-		x = 0;
-		printf("map->map%s",map->map[y]);
-		while (x < map->maxx)
-		{
-			x++;
-		}
-		y++;
-	}
+	map->nm++;
+	 if(a == 'r')
+	 	m_right(map);
+	if(a == 'l')
+		m_left(map);
+	if(a == 'u')
+		m_up(map);
+	if(a == 'd')
+		m_down(map);
 }
 
 int	main(int argc,char **argv)
@@ -47,18 +39,10 @@ int	main(int argc,char **argv)
 	 	return (0);
 	first.map = ft_split(str, '\n');
 	free(str);
-	printf("\nmachecazzosucced\n");
+	first.nm = 0;
 	if (checkmap(&first, argv[1]) == 0)
-	{
-		printf("diodelclone\n");
 		del_clone(first.map);
-	}
 	else
-	{
-	printf("checkmap ==%i\n", checkmap(&first, argv[1]));
-	map(&first);
 		exewindow(&first);
-		printf("dajje \n");	
-	}
 	return (0);
 }

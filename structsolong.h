@@ -17,7 +17,12 @@ typedef struct s_img
 {
 	void	*wall;
 	void	*flor;
-	void	*coin;
+	int		ncoin;
+	void	*coin1;
+	void	*coin2;
+	void	*coin3;
+	void	*coin4;
+	void	*coin5;
 	void	*exit;
 	void	*nemico;
 	void	*player;
@@ -43,6 +48,7 @@ typedef struct s_matrix
 	t_items	n;
 	t_wmlx  mlx;
 	t_img   img;
+	int		nm;
 } t_matrix;
 
 

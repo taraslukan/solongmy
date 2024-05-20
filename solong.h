@@ -21,6 +21,7 @@
 #define KEY_S 115
 
 #define KEY_ESC 65307
+int     escapeex(t_matrix *map);
 void	random3(t_matrix *map);
 void    n_move_right(t_matrix *map, int playery,int playerx);
 void    n_move_up(t_matrix *map, int playery,int playerx);;
@@ -44,6 +45,10 @@ void	m_right(t_matrix *map);
 void	m_down(t_matrix *map);
 int		move_random(t_matrix *map, int numero, int enemyx, int enemyy);
 int		error(int error);
+void    random2(t_matrix *map);
 int		randmv(t_matrix *map);
+void	ezzit(t_matrix *map);
+void    coinmove(t_matrix *map, int x, int y);
+void	digitnm(t_matrix *map, char a);
 
 #endif
