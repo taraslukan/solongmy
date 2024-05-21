@@ -6,7 +6,7 @@
 /*   By: tlukan <tlukan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 17:55:15 by lukan             #+#    #+#             */
-/*   Updated: 2024/05/20 18:38:36 by tlukan           ###   ########.fr       */
+/*   Updated: 2024/05/21 16:18:17 by tlukan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,8 @@ void creatmap(t_matrix *map)
 		x = 0;
 	}
 	ndoandamo = ft_itoa(map->nm);
-    mlx_string_put(map->mlx.mlx, map->mlx.wind, 0, 100, 0xFF00FF, "STEPS : ");
-    mlx_string_put(map->mlx.mlx, map->mlx.wind, 0, 150, 0xFF00FF, ndoandamo);
+    mlx_string_put(map->mlx.mlx, map->mlx.wind, 100, 100, 0xFF00FF, "STEPS : ");
+    mlx_string_put(map->mlx.mlx, map->mlx.wind, 150, 100, 0xFF00FF, ndoandamo);
 	free(ndoandamo);
 }
 
@@ -105,6 +105,7 @@ void	exewindow(t_matrix *map)
 	
 	x = map->maxx;
 	y = map->maxy;
+	map->img.ncoin = 0;
 	map->mlx.wind = NULL;
 	map->mlx.mlx = NULL;
 	map->mlx.mlx = mlx_init();

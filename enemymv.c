@@ -6,7 +6,7 @@
 /*   By: tlukan <tlukan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 15:23:32 by tlukan            #+#    #+#             */
-/*   Updated: 2024/05/20 15:53:54 by tlukan           ###   ########.fr       */
+/*   Updated: 2024/05/20 19:15:45 by tlukan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ int move_random(t_matrix *map, int numero, int enemyx, int enemyy)
 {
 	if (numero == 0)
 	{
+		printf("%i ---- %i\n", enemyx, enemyy);
 		if (map->map[enemyy - 1][enemyx] == '0'
 		|| map->map[enemyy - 1][enemyx] == 'P')
 			n_move_up(map, enemyy, enemyx);

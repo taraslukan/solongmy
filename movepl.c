@@ -24,7 +24,7 @@ void m_right(t_matrix *map)
 		map->p.xmap = playerx + 1;
 		map->p.ymap = playery;
 		if (map->n.xmap == map->p.xmap && map->n.ymap == map->p.ymap)
-			ezzit(map);
+			return (ezzit(map));
 		creatmap(map);
 	}
 }
@@ -53,7 +53,7 @@ void m_left(t_matrix *map)
 		map->p.xmap = playerx - 1;
 		map->p.ymap = playery;
 		if (map->n.xmap == map->p.xmap && map->n.ymap == map->p.ymap)
-			ezzit(map);
+			return (ezzit(map));
 		creatmap(map);
 	}
 }
@@ -70,7 +70,7 @@ void m_up(t_matrix *map)
 		if(map->c == 0)
 		{
 			ft_putstr("\nHai vinto! Ma Tarallo spacca!\n");
-			exit(1);
+			ezzit(map);
 		}
 	}	
 	else if (map->map[playery - 1][playerx] != '1')
@@ -82,7 +82,7 @@ void m_up(t_matrix *map)
 		map->p.xmap = playerx;
 		map->p.ymap = playery - 1;
 		if (map->n.xmap == map->p.xmap && map->n.ymap == map->p.ymap)
-			ezzit(map);
+			return (ezzit(map));
 		creatmap(map);
 	}
 }
@@ -111,7 +111,7 @@ void m_down(t_matrix *map)
 		map->p.xmap = playerx;
 		map->p.ymap = playery + 1;
 		if (map->n.xmap == map->p.xmap && map->n.ymap == map->p.ymap)
-			ezzit(map);
+			return (ezzit(map));
 		creatmap(map);
 	}
 }
@@ -119,5 +119,17 @@ void m_down(t_matrix *map)
 int window_escape(t_matrix *map)
 {
     mlx_destroy_window(map->mlx.mlx, map->mlx.wind);
-    return(1);
+		del_clone(map->map);
+	free(map->img.wall);
+	free(map->img.flor);
+	free(map->img.coin1);
+	free(map->img.coin2);
+	free(map->img.coin3);
+	free(map->img.coin4);
+	free(map->img.coin5);
+	free(map->img.exit);
+	free(map->img.nemico);
+	free(map->img.player);
+    exit(1);
+	return (1);
 }

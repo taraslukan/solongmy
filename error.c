@@ -15,6 +15,8 @@ int	error(int error)
 		ft_putstr(ERROR_5);
 	else if (error == 6)
 		ft_putstr(ERROR_6);
+	else if (error == 7)
+		ft_putstr(ERROR_7);
 	return (0);
 }
 
@@ -30,4 +32,24 @@ int	del_clone(char **matrix)
 	}
 	free(matrix);
 	return (1);
+}
+
+int	test(t_matrix *checkm, int x, int y)
+{
+	
+	while(checkm->map[++y])
+	{
+		x = -1;
+		while (checkm->map[y][++x])
+		{
+			if(checkm->map[y][x] != 'P' && checkm->map[y][x] != 'E'
+			&& checkm->map[y][x] != 'N' && checkm->map[y][x] != 'C'
+			&& checkm->map[y][x] != '1' && checkm->map[y][x] != '0')
+			{
+				error(7);
+				return (0);
+			}
+		}
+	}
+	return(1);
 }

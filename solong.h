@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include "mlxlin/mlx.h"
+#include "minilibx-linux/mlx.h"
 #include <fcntl.h>
 #include "ft_libft/libft.h"
 #include "structsolong.h"
@@ -50,5 +50,6 @@ int		randmv(t_matrix *map);
 void	ezzit(t_matrix *map);
 void    coinmove(t_matrix *map, int x, int y);
 void	digitnm(t_matrix *map, char a);
+int     test(t_matrix *checkm, int x, int y);
 
 #endif

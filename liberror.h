@@ -8,5 +8,6 @@
 #define ERROR_4 "Invalid map, the number of elements is incorrect."
 #define ERROR_5 "Invalid map, you provided a file with an invalid extension, (.ber) is the only one allowed."
 #define ERROR_6 "Invalid map, the player cannot reach all collectibles or the exit. Use another map."
+#define ERROR_7 "Invalid map, False char"
 
 #endif

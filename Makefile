@@ -8,7 +8,7 @@ MFLAGS = -lXext -lX11 -lm -lbsd
 # Directories
 
 LIBFTDIR = ./ft_libft
-MLXDIR = ./mlxlin
+MLXDIR = ./minilibx-linux
 
 # Source files
 SRCS = strfromfile.c saveitems.c main.c error.c movepl.c exewindow.c enemymv.c checkroad.c checkmap.c randmv.c nmove.c
@@ -20,7 +20,7 @@ NAME = so_long
 all: $(NAME)
 
 %.o: %.c | $(OBJS)
-	$(CC) $(CFLAGS) -I$(MLXDIR) -c $< -o $@
+	${CC} ${CFLAGS} -I$(MLXDIR) -g -c $< -o ${<:.c=.o}
 
 $(NAME): $(OBJS)
 	make -C $(MLXDIR)

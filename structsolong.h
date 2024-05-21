@@ -18,6 +18,7 @@ typedef struct s_img
 	void	*wall;
 	void	*flor;
 	int		ncoin;
+	
 	void	*coin1;
 	void	*coin2;
 	void	*coin3;
@@ -39,6 +40,7 @@ typedef struct s_wmlx
 typedef struct s_matrix
 {
 	int     maxx;
+	int		entrue;
 	int     maxy;
 	char    **map;
 	int     c;
