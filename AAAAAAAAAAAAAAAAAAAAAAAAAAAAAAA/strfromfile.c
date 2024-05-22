@@ -6,7 +6,7 @@
 /*   By: tlukan <tlukan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:33:45 by tlukan            #+#    #+#             */
-/*   Updated: 2024/05/22 13:04:03 by tlukan           ###   ########.fr       */
+/*   Updated: 2024/05/22 14:32:10 by tlukan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ char	*strfromfile(int fd)
 	if (ft_strlen(ret) == 0 || fd < 0)
 	{
 		ft_putstr("Error 104 by tarallo, file not found ");
+		free(ret);
 		return (NULL);
 	}
 	return (ret);

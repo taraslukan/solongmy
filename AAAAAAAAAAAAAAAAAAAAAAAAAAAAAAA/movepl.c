@@ -6,7 +6,7 @@
 /*   By: tlukan <tlukan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 12:41:35 by tlukan            #+#    #+#             */
-/*   Updated: 2024/05/22 12:43:40 by tlukan           ###   ########.fr       */
+/*   Updated: 2024/05/22 14:28:25 by tlukan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,16 +132,6 @@ int	window_escape(t_matrix *map)
 {
 	mlx_destroy_window(map->mlx.mlx, map->mlx.wind);
 	del_clone(map->map);
-	free(map->img.wall);
-	free(map->img.flor);
-	free(map->img.coin1);
-	free(map->img.coin2);
-	free(map->img.coin3);
-	free(map->img.coin4);
-	free(map->img.coin5);
-	free(map->img.exit);
-	free(map->img.nemico);
-	free(map->img.player);
 	exit(1);
 	return (1);
 }

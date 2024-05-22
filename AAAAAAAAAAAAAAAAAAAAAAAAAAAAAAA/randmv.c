@@ -6,7 +6,7 @@
 /*   By: tlukan <tlukan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 15:04:45 by tlukan            #+#    #+#             */
-/*   Updated: 2024/05/22 12:46:59 by tlukan           ###   ########.fr       */
+/*   Updated: 2024/05/22 14:42:13 by tlukan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,18 +46,6 @@ void	ezzit(t_matrix *map)
 {
 	ft_putstr("La partita é finita.\n");
 	del_clone(map->map);
-	free(map->img.wall);
-	free(map->img.flor);
-	free(map->img.coin1);
-	free(map->img.coin2);
-	free(map->img.coin3);
-	free(map->img.coin4);
-	free(map->img.coin5);
-	free(map->img.exit);
-	free(map->img.nemico);
-	free(map->img.player);
-	free(map->mlx.mlx);
-	free(map->mlx.wind);
 	exit(1);
 }
 
