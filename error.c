@@ -1,9 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   error.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tlukan <tlukan@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/21 17:52:38 by tlukan            #+#    #+#             */
+/*   Updated: 2024/05/21 17:55:01 by tlukan           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "solong.h"
 
 int	error(int error)
-{	
-	
-	if(error == 1)
+{
+	if (error == 1)
 		ft_putstr(ERROR_1);
 	else if (error == 2)
 		ft_putstr(ERROR_2);
@@ -36,13 +47,12 @@ int	del_clone(char **matrix)
 
 int	test(t_matrix *checkm, int x, int y)
 {
-	
-	while(checkm->map[++y])
+	while (checkm->map[++y])
 	{
 		x = -1;
 		while (checkm->map[y][++x])
 		{
-			if(checkm->map[y][x] != 'P' && checkm->map[y][x] != 'E'
+			if (checkm->map[y][x] != 'P' && checkm->map[y][x] != 'E'
 			&& checkm->map[y][x] != 'N' && checkm->map[y][x] != 'C'
 			&& checkm->map[y][x] != '1' && checkm->map[y][x] != '0')
 			{
@@ -51,5 +61,5 @@ int	test(t_matrix *checkm, int x, int y)
 			}
 		}
 	}
-	return(1);
+	return (1);
 }

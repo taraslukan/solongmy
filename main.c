@@ -6,25 +6,26 @@
 /*   By: tlukan <tlukan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 17:55:31 by lukan             #+#    #+#             */
-/*   Updated: 2024/05/21 17:25:52 by tlukan           ###   ########.fr       */
+/*   Updated: 2024/05/22 12:41:10 by tlukan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "solong.h"
+
 void	digitnm(t_matrix *map, char a)
 {
 	map->nm++;
-	 if(a == 'r')
-	 	m_right(map);
-	if(a == 'l')
+	if (a == 'r')
+		m_right(map);
+	if (a == 'l')
 		m_left(map);
-	if(a == 'u')
+	if (a == 'u')
 		m_up(map);
-	if(a == 'd')
+	if (a == 'd')
 		m_down(map);
 }
 
-int	main(int argc,char **argv)
+int	main(int argc, char **argv)
 {
 	int			fd;
 	char		*str;
@@ -35,8 +36,8 @@ int	main(int argc,char **argv)
 	fd = open(argv[1], O_RDONLY);
 	str = strfromfile(fd);
 	close(fd);
-	 if (str == NULL)
-	 	return (0);
+	if (str == NULL)
+		return (0);
 	first.map = ft_split(str, '\n');
 	free(str);
 	first.nm = 0;
